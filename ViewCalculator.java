@@ -157,11 +157,13 @@ public class ViewCalculator {
         /************************************************************************************/
     }
 
-// RoundButton class extends JButton to create a button with round corners.
+/**
+ * this class to create round JButton for our calculator
+ */
 public class RoundButton extends JButton {
-    private Shape shape; // A variable to hold the shape of the button.
+    private Shape button; // hold the shape of the button
 
-    // Constructor for RoundButton.
+    // Constructor RoundButton class
     public RoundButton(String label) {
         super(label); // Calls the constructor of the superclass JButton.
 
@@ -200,12 +202,12 @@ public class RoundButton extends JButton {
     // Overriding the contains method from Component to change the area of the button that responds to clicks.
     public boolean contains(int x, int y) {
         // If the shape is null or its size doesn't match the current size of the button, it creates a new rounded rectangle.
-        if (shape == null || !shape.getBounds().equals(getBounds())) {
-            shape = new RoundRectangle2D.Float(0, 0, getWidth(), getHeight(), 20, 20);
+        if (button == null || !button.getBounds().equals(getBounds())) {
+            button = new RoundRectangle2D.Float(0, 0, getWidth(), getHeight(), 20, 20);
         }
 
         // Checks if the given point is inside the shape of the button.
-        return shape.contains(x, y);
+        return button.contains(x, y);
     }
 }
 }
